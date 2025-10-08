@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: billing_postgres
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: billing_dashboard
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
